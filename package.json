@@ -4,9 +4,9 @@
   "description": "MM BackEnd",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "watch": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env node index.js",
+    "watch": "cross-env nodemon index.js",
+    "test": "cross-env jest --verbose --runInBand"
   },
   "author": "Jonas Engberg",
   "license": "MIT",
@@ -17,6 +17,12 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "cross-env": "^7.0.0",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

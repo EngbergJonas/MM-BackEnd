@@ -1,4 +1,5 @@
 const morgan = require('morgan')
+const logger = require('./logger')
 
 const requestLogger = morgan(':method :url :status :res[content-length] - :response-time ms')
 
@@ -7,7 +8,7 @@ const unknownEndpoint = (req, res) => {
 }
 
 const errorHandler = (req, res) => {
-  console.log(error.message)
+  logger.error(error.message)
 
   if (error.name === 'CastError' && error.kind === 'ObjectId') {
     return res.status(400).send({ error: 'malformatted id' })
